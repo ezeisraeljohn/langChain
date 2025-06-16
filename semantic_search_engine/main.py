@@ -58,6 +58,7 @@ vector_store = InMemoryVectorStore(embedding=embeddings)
 ids = vector_store.add_documents(documents=all_split)
 # results = vector_store.similarity_search_with_score("What was Nike's revenue in 2023?")
 
+results = vector_store.similarity_search("What is the nicks most advanced model")
 doc, score = results[1]
 print(f"score {score}\n")
 print(doc)
