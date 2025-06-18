@@ -5,7 +5,7 @@ if not os.environ.get("GOOGLE_API_KEY"):
     os.environ["GOOGLE_API_KEY"] = getpass.getpass("Enter you password")
 
 from langgraph.checkpoint.memory import MemorySaver
-from langgraph.graph import START, StateGraph, MessagesState
+from langgraph.graph import START, StateGraph
 from langgraph.graph.message import add_messages
 from langchain.chat_models import init_chat_model
 from langchain_core.messages import (
@@ -22,7 +22,7 @@ from typing_extensions import Annotated, TypedDict, Sequence
 model = init_chat_model("gemini-2.0-flash", model_provider="google_genai")
 
 trimmer = trim_messages(
-    max_tokens=65,
+    max_tokens=30,
     strategy="last",
     token_counter=model,
     include_system=True,
